@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes App</title>
+    <link rel="stylesheet" href="styles/normalize.css" />
+    <link rel="stylesheet" href="styles/App.css" />
+    <script
+      src="https://kit.fontawesome.com/e19567f465.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="App.js"></script>
+  </head>
+  <body>
+    <div class="app_container">
+      <div class="app">
+        <section class="container notes">
+          <div class="container__header">
+            <div class="header__cell"></div>
+            <div class="header__cell">Name</div>
+            <div class="header__cell">Created</div>
+            <div class="header__cell">Category</div>
+            <div class="header__cell">Content</div>
+            <div class="header__cell">Dates</div>
+            <div class="header__cell">
+              <button class="iconic_button">
+                <i class="fa-solid fa-box-archive"></i>
+              </button>
+              <button class="iconic_button">
+                <i class="fa-solid fa-trash-can"></i>
+              </button>
+            </div>
+          </div>
+          <div class="container__body">
+            <div class="note">
+              <div class="note__cell">
+                <i class="fa-solid fa-circle-exclamation fa-xl"></i>
+              </div>
+              <div class="note__cell font_color__black">Name</div>
+              <div class="note__cell">Created</div>
+              <div class="note__cell">Category</div>
+              <div class="note__cell">
+                <p>
+                  Content asdkjas daksjdh aksjdh askd haskjd hsajkd haskjd
+                  haskjd hasjkd hads
+                </p>
+              </div>
+              <div class="note__cell">Dates</div>
+              <div class="note__cell">
+                <button class="iconic_button">
+                  <i class="fa-solid fa-pencil"></i>
+                </button>
+                <button class="iconic_button">
+                  <i class="fa-solid fa-box-archive"></i>
+                </button>
+                <button class="iconic_button">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </div>
+            </div>
+            <div class="note">
+              <div class="note__cell">
+                <i class="fa-solid fa-circle-exclamation fa-xl"></i>
+              </div>
+              <div class="note__cell font_color__black">Name</div>
+              <div class="note__cell">Created</div>
+              <div class="note__cell">Category</div>
+              <div class="note__cell">
+                <p>
+                  Content asdkjas daksjdh aksjdh askd haskjd hsajkd haskjd
+                  haskjd hasjkd hads
+                </p>
+              </div>
+              <div class="note__cell">Dates</div>
+              <div class="note__cell">
+                <button class="iconic_button">
+                  <i class="fa-solid fa-pencil"></i>
+                </button>
+                <button class="iconic_button">
+                  <i class="fa-solid fa-box-archive"></i>
+                </button>
+                <button class="iconic_button">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </div>
+            </div>
+            <div class="note">
+              <div class="note__cell">
+                <i class="fa-solid fa-circle-exclamation fa-xl"></i>
+              </div>
+              <div class="note__cell font_color__black">Name</div>
+              <div class="note__cell">Created</div>
+              <div class="note__cell">Category</div>
+              <div class="note__cell">
+                <p>
+                  Content asdkjas daksjdh aksjdh askd haskjd hsajkd haskjd
+                  haskjd hasjkd hads
+                </p>
+              </div>
+              <div class="note__cell">Dates</div>
+              <div class="note__cell">
+                <button class="iconic_button">
+                  <i class="fa-solid fa-pencil"></i>
+                </button>
+                <button class="iconic_button">
+                  <i class="fa-solid fa-box-archive"></i>
+                </button>
+                <button class="iconic_button">
+                  <i class="fa-solid fa-trash-can"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="container__footer">
+            <div class="footer__cell"></div>
+            <div class="footer__cell">
+              <button class="custom_btn">Create note</button>
+            </div>
+          </div>
+        </section>
+        <section class="container categories">
+          <div class="container__header">
+            <div class="header__cell"></div>
+            <div class="header__cell">Note Category</div>
+            <div class="header__cell">Active</div>
+            <div class="header__cell">Archieved</div>
+          </div>
+          <div class="container__body">
+            <div class="category">
+              <div class="category__cell">
+                <i class="fa-solid fa-circle-exclamation fa-xl"></i>
+              </div>
+              <div class="category__cell font_color__black">Name</div>
+              <div class="category__cell">13</div>
+              <div class="category__cell">4</div>
+            </div>
+            <div class="category">
+              <div class="category__cell">
+                <i class="fa-solid fa-lightbulb fa-xl"></i>
+              </div>
+              <div class="category__cell font_color__black">Name</div>
+              <div class="category__cell">13</div>
+              <div class="category__cell">4</div>
+            </div>
+            <div class="category">
+              <div class="category__cell">
+                <i class="fa-solid fa-poo fa-xl"></i>
+              </div>
+              <div class="category__cell font_color__black">Name</div>
+              <div class="category__cell">13</div>
+              <div class="category__cell">4</div>
+            </div>
+          </div>
+        </section>
+      </div>
+      <div class="custom_modal active">
+        <div class="custom_modal__content">
+          <form id="new_note">
+            <h3 class="form_name">New note</h3>
+            <input type="text" class="new_note__name" />
+            <select name="category_select" class="category_select" id="">
+              <option class="category_select__option" value="0" selected disabled>Select category...</option>
+              <option class="category_select__option" value="1">Task</option>
+              <option class="category_select__option" value="2">Idea</option>
+              <option class="category_select__option" value="3">Random Thought</option>
+            </select>
+            <textarea name="new_note__text" class="new_note__text" rows="5"></textarea>
+            <div class="form__controls">
+                <button class="custom_btn" type="submit">Save</button>
+                <button class="custom_btn" type="reset">Cancel</button>
+            </div>            
+          </form>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
