@@ -1,10 +1,9 @@
+import { addNoteData, changeNoteData, getNoteData } from "./scripts/components/NotesData.js";
 import parseFormData from "./scripts/components/ParseFormData.js";
 import renderNote from "./scripts/components/UI/RenderNote.js";
 
 window.addEventListener("load", function (event) {
   console.log("All resources finished loading!");
-
-  let notes_data_array = [];
 
   let createNoteBtn = document.querySelector("#create_note");
   createNoteBtn.addEventListener("click", () => {
@@ -31,12 +30,15 @@ window.addEventListener("load", function (event) {
     if (id) {
       note_data = parseFormData(
         event.target,
-        notes_data_array.find((elem) => elem.id == id)
+        // notes_data_array.find((elem) => elem.id == id)
+        getNoteData(id)
       );
-      document.getElementById(note_data.id).replaceWith(renderNote(note_data))
+      changeNoteData(id, note_data);
+      document.getElementById(note_data.id).replaceWith(renderNote(note_data));
     } else {
       note_data = parseFormData(event.target, {});
-      notes_data_array.push(note_data);
+      // notes_data_array.push(note_data);
+      addNoteData(note_data)
       document
         .querySelector(".notes > .container__body")
         .appendChild(renderNote(note_data));
@@ -48,4 +50,6 @@ window.addEventListener("load", function (event) {
     // @ts-ignore
     event.target.reset();
   });
+  
 });
+

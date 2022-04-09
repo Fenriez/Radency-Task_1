@@ -1,3 +1,5 @@
+import { changeNoteDataAttr, removeNoteData } from "../NotesData.js";
+
 function renderNote(note_data) {
   let inner_content = [
     note_data.name,
@@ -77,6 +79,16 @@ function renderNote(note_data) {
           note_data.category;
 
         document.querySelector("#note_form__mdl").classList.toggle("active");
+      });
+
+      archive_btn.addEventListener("click", (event) => {
+        changeNoteDataAttr("isArchieved", true);
+      });
+
+      delete_btn.addEventListener("click", (event) => {
+        let current_note = event.target.parentNode.parentNode.parentNode;
+        removeNoteData(current_note.getAttribute("id"));
+        current_note.remove();
       });
 
       div.append(edit_btn, archive_btn, delete_btn);
