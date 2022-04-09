@@ -19,7 +19,6 @@
 .container {
   display: grid;
   grid-template-columns: 1fr;
-  /* height: fit-content; */
 }
 
 .container__header {
@@ -164,7 +163,7 @@
   width: 400px;
   padding: 5px 5px;
 }
-.category_select {
+.new_note__category {
   grid-area: category_select;
   width: 250px;
   font-size: inherit;
