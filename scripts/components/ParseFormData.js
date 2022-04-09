@@ -9,7 +9,7 @@ function parseFormData(form, old_data) {
     category: category_inp.value,
     creationDate: old_data.creationDate ?? dateFormatter(Date.now()),
     text: text_inp.value,
-    isArchived: old_data.isArchived ?? false,
+    isArchived: old_data.isArchived ?? 'false',
     internalDates: findDates(text_inp.value),
   };
 }

@@ -116,6 +116,13 @@
   color: black;
 }
 
+.archived {
+  background-color: chocolate;
+}
+.hidden {
+    display: none;
+}
+
 /* Modal  */
 .custom_modal {
   position: fixed;

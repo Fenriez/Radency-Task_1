@@ -1,4 +1,8 @@
-import { addNoteData, changeNoteData, getNoteData } from "./scripts/components/NotesData.js";
+import {
+  addNoteData,
+  changeNoteData,
+  getNoteData
+} from "./scripts/components/NotesData.js";
 import parseFormData from "./scripts/components/ParseFormData.js";
 import renderNote from "./scripts/components/UI/RenderNote.js";
 
@@ -15,7 +19,6 @@ window.addEventListener("load", function (event) {
     "#note_form > .form__controls > .close"
   );
   modal_close.addEventListener("click", (event) => {
-    event.stopPropagation(); //????
     this.document.querySelector("#note_form__mdl").classList.toggle("active");
   });
 
@@ -28,21 +31,17 @@ window.addEventListener("load", function (event) {
     let note_data;
 
     if (id) {
-      note_data = parseFormData(
-        event.target,
-        // notes_data_array.find((elem) => elem.id == id)
-        getNoteData(id)
-      );
+      note_data = parseFormData(event.target, getNoteData(id));
       changeNoteData(id, note_data);
       document.getElementById(note_data.id).replaceWith(renderNote(note_data));
     } else {
       note_data = parseFormData(event.target, {});
-      // notes_data_array.push(note_data);
-      addNoteData(note_data)
+      addNoteData(note_data);
       document
         .querySelector(".notes > .container__body")
         .appendChild(renderNote(note_data));
     }
+    // @ts-ignore
     event.target.setAttribute("data-id", "");
 
     document.querySelector("#note_form__mdl").classList.toggle("active");
@@ -50,6 +49,12 @@ window.addEventListener("load", function (event) {
     // @ts-ignore
     event.target.reset();
   });
-  
-});
 
+  this.document
+    .querySelector("#archived_visibility")
+    .addEventListener("click", (event) => {
+      this.document.querySelectorAll('.note[data-archived=\'true\']').forEach((elem) => {
+        elem.classList.toggle('hidden');
+      })
+    });
+});

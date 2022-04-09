@@ -10,8 +10,8 @@ function renderNote(note_data) {
 
   let note = document.createElement("div");
   note.className = "note";
-  //   note.setAttribute("data-id", note_data.id);
   note.id = note_data.id;
+  note.setAttribute("data-archived", note_data.isArchived);
 
   for (let i = 0; i < 7; i++) {
     let div = document.createElement("div");
@@ -65,27 +65,43 @@ function renderNote(note_data) {
           // @ts-ignore
           event.target.parentNode.parentNode.parentNode.getAttribute("id")
         );
-        document
-          .querySelector("#note_form")
-          .setAttribute(
-            "data-id",
-            event.target.parentNode.parentNode.parentNode.getAttribute("id")
-          );
+        document.querySelector("#note_form").setAttribute(
+          "data-id",
+          // @ts-ignore
+          event.target.parentNode.parentNode.parentNode.getAttribute("id")
+        );
         document.querySelector("#note_form > .form_name").innerHTML =
           "Edit note";
+        // @ts-ignore
         document.querySelector("#note_form__name_input").value = note_data.name;
+        // @ts-ignore
         document.querySelector("#note_form__text_input").value = note_data.text;
+        // @ts-ignore
         document.querySelector("#note_form__category_select").value =
           note_data.category;
 
         document.querySelector("#note_form__mdl").classList.toggle("active");
       });
 
+      // @ts-ignore
       archive_btn.addEventListener("click", (event) => {
-        changeNoteDataAttr("isArchieved", true);
+        // @ts-ignore
+        let current_note = event.target.parentNode.parentNode.parentNode;
+
+        if (current_note.getAttribute("data-archived") == 'true') {
+          changeNoteDataAttr(current_note.id, "isArchived", 'false');
+          current_note.setAttribute("data-archived", 'false');
+          current_note.classList.toggle("archived");
+        } else {
+          changeNoteDataAttr(current_note.id, "isArchived", 'true');
+          current_note.setAttribute("data-archived", 'true');
+          current_note.classList.toggle("hidden");
+          current_note.classList.toggle("archived");
+        }
       });
 
       delete_btn.addEventListener("click", (event) => {
+        // @ts-ignore
         let current_note = event.target.parentNode.parentNode.parentNode;
         removeNoteData(current_note.getAttribute("id"));
         current_note.remove();
