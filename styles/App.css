@@ -139,13 +139,13 @@
   border-radius: 16px;
 }
 
-#new_note {
+#note_form {
   display: grid;
   grid-template-columns: 1fr auto;
   grid-template-rows: repeat(4, max-content);
   grid-template-areas:
-    "form_name form_name" "new_note__name category_select"
-    "new_note__text new_note__text" "form__controls form__controls";
+    "form_name form_name" "note_form__name category_select"
+    "note_form__text note_form__text" "form__controls form__controls";
   grid-row-gap: 20px;
   grid-column-gap: 15px;
 
@@ -158,19 +158,19 @@
   font-weight: bold;
   color: #6a6b6f;
 }
-.new_note__name {
-  grid-area: new_note__name;
+.note_form__name_input {
+  grid-area: note_form__name;
   width: 400px;
   padding: 5px 5px;
 }
-.new_note__category {
+.note_form__category_select {
   grid-area: category_select;
   width: 250px;
   font-size: inherit;
   font-family: inherit;
 }
-.new_note__text {
-  grid-area: new_note__text;
+.note_form__text_input {
+  grid-area: note_form__text;
   padding: 5px 5px;
   width: 100%;
   font-size: inherit;

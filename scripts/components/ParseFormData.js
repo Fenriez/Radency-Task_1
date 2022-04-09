@@ -1,15 +1,15 @@
-function parseFormData(form) {
-  let name_inp = form.querySelector("#new_note__name");
-  let category_inp = form.querySelector("#new_note__category > option:checked");
-  let text_inp = form.querySelector("#new_note__text");
+function parseFormData(form, old_data) {
+  let name_inp = form.querySelector("#note_form__name_input");
+  let category_inp = form.querySelector("#note_form__category_select > option:checked");
+  let text_inp = form.querySelector("#note_form__text_input");
 
   return {
-    id: Date.now(),
+    id: old_data.id ?? Date.now(),
     name: name_inp.value,
     category: category_inp.value,
-    creationDate: dateFormatter(Date.now()),
+    creationDate: old_data.creationDate ?? dateFormatter(Date.now()),
     text: text_inp.value,
-    isArchived: false,
+    isArchived: old_data.isArchived ?? false,
     internalDates: findDates(text_inp.value),
   };
 }

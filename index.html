@@ -155,15 +155,15 @@
           </div>
         </section>
       </div>
-      <div id="new_note__mdl" class="custom_modal">
+      <div id="note_form__mdl" class="custom_modal">
         <div class="custom_modal__content">
-          <form id="new_note">
+          <form id="note_form">
             <h3 class="form_name">New note</h3>
-            <input type="text" id="new_note__name" class="new_note__name" />
+            <input type="text" id="note_form__name_input" class="note_form__name_input" />
             <select required
-              id="new_note__category"
-              name="new_note__category"
-              class="new_note__category"
+              id="note_form__category_select"
+              name="note_form__category_select"
+              class="note_form__category_select"
             >
               <option
                 class="category_select__option"
@@ -181,13 +181,13 @@
               </option>
             </select>
             <textarea
-              id="new_note__text"
-              name="new_note__text"
-              class="new_note__text"
+              id="note_form__text_input"
+              name="note_form__text_input"
+              class="note_form__text_input"
               rows="5"
             ></textarea>
             <div class="form__controls">
-              <button class="custom_btn" type="submit" form="new_note">Save</button>
+              <button class="custom_btn" type="submit" form="note_form">Save</button>
               <button class="custom_btn close" type="reset">Cancel</button>
             </div>
           </form>
