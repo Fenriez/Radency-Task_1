@@ -53,8 +53,18 @@ window.addEventListener("load", function (event) {
   this.document
     .querySelector("#archived_visibility")
     .addEventListener("click", (event) => {
-      this.document.querySelectorAll('.note[data-archived=\'true\']').forEach((elem) => {
-        elem.classList.toggle('hidden');
-      })
+      this.document
+        .querySelectorAll(".note[data-archived='true']")
+        .forEach((elem) => {
+          elem.classList.toggle("hidden");
+        });
+    });
+
+  this.document
+    .querySelector("#delete_all")
+    .addEventListener("click", (event) => {
+      this.document.querySelectorAll(".note").forEach((elem) => {
+        elem.remove();
+      });
     });
 });
