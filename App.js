@@ -9,22 +9,21 @@ import renderNote from "./scripts/components/UI/RenderNote.js";
 
 window.addEventListener("load", function (event) {
   console.log("All resources finished loading!");
+  
+  let test_arr = getNoteData();
 
-  let createNoteBtn = document.querySelector("#create_note");
-  createNoteBtn.addEventListener("click", () => {
+  document.querySelector("#create_note").addEventListener("click", () => {
     document.querySelector("#note_form > .form_name").innerHTML = "New note";
     document.querySelector("#note_form__mdl").classList.toggle("active");
   });
 
-  let modal_close = document.querySelector(
-    "#note_form > .form__controls > .close"
-  );
-  modal_close.addEventListener("click", (event) => {
-    this.document.querySelector("#note_form__mdl").classList.toggle("active");
-  });
+  document
+    .querySelector("#note_form > .form__controls > .close")
+    .addEventListener("click", (event) => {
+      this.document.querySelector("#note_form__mdl").classList.toggle("active");
+    });
 
-  let note_form = document.querySelector("#note_form");
-  note_form.addEventListener("submit", (event) => {
+  document.querySelector("#note_form").addEventListener("submit", (event) => {
     event.preventDefault();
 
     // @ts-ignore
@@ -42,6 +41,7 @@ window.addEventListener("load", function (event) {
         .querySelector(".notes > .container__body")
         .appendChild(renderNote(note_data));
     }
+    console.log(note_data)
     categoriesCountUpdate();
     // @ts-ignore
     event.target.setAttribute("data-id", "");
@@ -70,4 +70,10 @@ window.addEventListener("load", function (event) {
       });
       categoriesCountUpdate();
     });
+
+    for (const i of test_arr) {
+      document
+        .querySelector(".notes > .container__body")
+        .appendChild(renderNote(i));
+    }
 });

@@ -61,11 +61,6 @@ function renderNote(note_data) {
       delete_btn.innerHTML = '<i class="fa-solid fa-trash-can"></i>';
 
       edit_btn.addEventListener("click", (event) => {
-        // event.stopPropagation();
-        console.log(
-          // @ts-ignore
-          event.target.parentNode.parentNode.parentNode.getAttribute("id")
-        );
         document.querySelector("#note_form").setAttribute(
           "data-id",
           // @ts-ignore

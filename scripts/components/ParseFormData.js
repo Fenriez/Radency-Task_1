@@ -17,7 +17,6 @@ function parseFormData(form, old_data) {
 function findDates(str) {
   let rgxp =
     /((0?[1-9]|[1-2][0-9]|3[0-1])[\/\-\.](0?[1-9]|1[0-2])[\/\.\-](\d{4}))|((0?[1-9]|1[0-2])[\/\.\-](0?[1-9]|[1-2][0-9]|3[0-1])[\/\-\.](\d{4}))/g;
-  //first asd ad sa 30.11.1989 das as d 11-30-2152
   
   return str.match(rgxp) ?? [];
 }
