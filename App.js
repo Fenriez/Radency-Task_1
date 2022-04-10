@@ -1,3 +1,4 @@
+import categoriesCountUpdate from "./scripts/components/CategoriesCountUpdate.js";
 import {
   addNoteData,
   changeNoteData,
@@ -41,6 +42,7 @@ window.addEventListener("load", function (event) {
         .querySelector(".notes > .container__body")
         .appendChild(renderNote(note_data));
     }
+    categoriesCountUpdate();
     // @ts-ignore
     event.target.setAttribute("data-id", "");
 
@@ -66,5 +68,6 @@ window.addEventListener("load", function (event) {
       this.document.querySelectorAll(".note").forEach((elem) => {
         elem.remove();
       });
+      categoriesCountUpdate();
     });
 });

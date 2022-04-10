@@ -1,3 +1,4 @@
+import categoriesCountUpdate from "../CategoriesCountUpdate.js";
 import { changeNoteDataAttr, removeNoteData } from "../NotesData.js";
 
 function renderNote(note_data) {
@@ -25,7 +26,7 @@ function renderNote(note_data) {
         case "Idea":
           div.innerHTML = '<i class="fa-solid fa-lightbulb fa-xl"></i>';
           break;
-        case "Random_Thought":
+        case "Random Thought":
           div.innerHTML = '<i class="fa-solid fa-poo fa-xl"></i>';
           break;
 
@@ -79,6 +80,7 @@ function renderNote(note_data) {
         // @ts-ignore
         document.querySelector("#note_form__category_select").value =
           note_data.category;
+        categoriesCountUpdate();
 
         document.querySelector("#note_form__mdl").classList.toggle("active");
       });
@@ -88,22 +90,24 @@ function renderNote(note_data) {
         // @ts-ignore
         let current_note = event.target.parentNode.parentNode.parentNode;
 
-        if (current_note.getAttribute("data-archived") == 'true') {
-          changeNoteDataAttr(current_note.id, "isArchived", 'false');
-          current_note.setAttribute("data-archived", 'false');
+        if (current_note.getAttribute("data-archived") == "true") {
+          changeNoteDataAttr(current_note.id, "isArchived", "false");
+          current_note.setAttribute("data-archived", "false");
           current_note.classList.toggle("archived");
         } else {
-          changeNoteDataAttr(current_note.id, "isArchived", 'true');
-          current_note.setAttribute("data-archived", 'true');
+          changeNoteDataAttr(current_note.id, "isArchived", "true");
+          current_note.setAttribute("data-archived", "true");
           current_note.classList.toggle("hidden");
           current_note.classList.toggle("archived");
         }
+        categoriesCountUpdate();
       });
 
       delete_btn.addEventListener("click", (event) => {
         // @ts-ignore
         let current_note = event.target.parentNode.parentNode.parentNode;
         removeNoteData(current_note.getAttribute("id"));
+        categoriesCountUpdate();
         current_note.remove();
       });
 
